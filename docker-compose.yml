@@ -8,6 +8,6 @@ services:
       - 57700:52773
     volumes:
 #      - ./web:/opt/irisapp/csp
-      - ./tests:/opt/irisapp/tests
+#      - ./tests:/opt/irisapp/tests
       - ./:/irisdev/app
       - /efs/ICS:/ICS
