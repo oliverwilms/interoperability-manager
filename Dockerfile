@@ -19,10 +19,10 @@ RUN chmod +x /irissession.sh
 
 USER ${ISC_PACKAGE_MGRUSER}
 
-COPY Installer.cls .
+COPY --chown=${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} Installer.cls .
 
-COPY src src
-COPY web csp
+COPY --chown=${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} src src
+COPY --chown=${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} web csp
 
 SHELL ["/irissession.sh"]
 
