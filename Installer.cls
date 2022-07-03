@@ -30,7 +30,10 @@ XData setup
       CookiePath="${APPURL}"
       AuthenticationMethods="32" />
   </Namespace>
-
+  <If Condition='(##class(Security.Applications).Exists("/irisapp")=0)'>
+    <Log Text="Creating web application /irisapp" Level="0"/>
+    <RunInstall Class="App.Installer" Method="CreateWebAppIrisapp"/>
+  </If>
   <Invoke Class="App.Installer" Method="SetupREST" CheckStatus="1">
     <Arg Value="${NAMESPACE}"/>
     <Arg Value="${RESTURL}"/>
@@ -45,6 +48,25 @@ ClassMethod setup(ByRef pVars, pLogLevel As %Integer = 3, pInstaller As %Install
 {
   #; Let XGL document generate code for this method. 
   Quit ##class(%Installer.Manifest).%Generate(%compiledclass, %code, "setup")
+}
+
+ClassMethod CreateWebAppIrisapp(pVars, pLogLevel, tInstaller) As %Status
+{
+  New $Namespace
+  Set $Namespace = "%SYS"
+  Set cspName = "/irisapp"
+  Set cspProperties("NameSpace") = $Get(Namespace,"IRISAPP")
+  Set cspProperties("Enabled") = 1
+  Set cspProperties("AutheEnabled") = $$$AutheUnauthenticated + $$$AutheCache
+  Set cspProperties("DeepSeeEnabled") = 1
+  Set cspProperties("iKnowEnabled") = 0
+  Set cspProperties("Path") = "/opt/irisapp/csp/"
+  Set cspProperties("Resource") = ""
+  Set cspProperties("ServeFiles") = 1
+  Set tSC = ##class(Security.Applications).Create(cspName,.cspProperties)
+  Do tInstaller.PopNS()
+  If $$$ISERR(tSC) Throw ##class(%Installer.Exception).CreateFromStatus(tSC)
+  Quit $$$OK
 }
 
 ClassMethod SetupREST(pNameSpace As %String, pUrl As %String, pResource As %String, pClass As %String) As %Status
