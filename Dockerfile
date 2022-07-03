@@ -14,7 +14,7 @@ WORKDIR /opt/irisapp
 
 RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} .
 
-COPY irissession.sh /
+COPY --chown=${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} irissession.sh /
 RUN chmod +x /irissession.sh 
 
 USER ${ISC_PACKAGE_MGRUSER}
