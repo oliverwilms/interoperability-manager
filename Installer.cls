@@ -6,17 +6,17 @@ XData setup
 <Manifest>
   <Default Name="APPDIR" Dir="#{$system.Process.CurrentDirectory()}" />
   <Default Name="SourceDir" Dir="${APPDIR}/src" />
-  <Default Name="NAMESPACE" Value="IRISAPP" />
-  <Default Name="APPURL" Value="/csp/irisapp" />
-  <Default Name="RESTURL" Value="/rest/irisapp" />
-  <Default Name="CSPPATH" Dir="/opt/irisapp/csp" />
+  <Default Name="NAMESPACE" Value="FEEDER" />
+  <Default Name="APPURL" Value="/csp/feeder" />
+  <Default Name="RESTURL" Value="/rest/feeder" />
+  <Default Name="CSPPATH" Dir="/opt/feeder/csp" />
   <Default Name="DBRESOURCE" Value="%DB_${NAMESPACE}" />
 
   <Resource Name="${DBRESOURCE}" Description="" Permission="RW"/>
 
   <Namespace Name="${NAMESPACE}" Code="${NAMESPACE}" Data="${NAMESPACE}" Create="yes" Ensemble="1">
     <Configuration>
-      <Database Name="${NAMESPACE}" Dir="${APPDIR}/db/irisapp" Resource="${DBRESOURCE}" Create="yes" />
+      <Database Name="${NAMESPACE}" Dir="${APPDIR}/db/${NAMESPACE}" Resource="${DBRESOURCE}" Create="yes" />
       <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
     </Configuration>
     <CSPApplication 
@@ -30,9 +30,9 @@ XData setup
       CookiePath="${APPURL}"
       AuthenticationMethods="32" />
   </Namespace>
-  <If Condition='(##class(Security.Applications).Exists("/irisapp")=0)'>
-    <Log Text="Creating web application /irisapp" Level="0"/>
-    <RunInstall Class="App.Installer" Method="CreateWebAppIrisapp"/>
+  <If Condition='(##class(Security.Applications).Exists("/feederapp")=0)'>
+    <Log Text="Creating web application /feederapp" Level="0"/>
+    <RunInstall Class="App.Installer" Method="CreateWebAppFeederapp"/>
   </If>
   <Invoke Class="App.Installer" Method="SetupREST" CheckStatus="1">
     <Arg Value="${NAMESPACE}"/>
@@ -54,13 +54,13 @@ ClassMethod CreateWebAppIrisapp(pVars, pLogLevel, tInstaller) As %Status
 {
   New $Namespace
   Set $Namespace = "%SYS"
-  Set cspName = "/irisapp"
-  Set cspProperties("NameSpace") = $Get(Namespace,"IRISAPP")
+  Set cspName = "/feederapp"
+  Set cspProperties("NameSpace") = $Get(Namespace,"FEEDER")
   Set cspProperties("Enabled") = 1
   Set cspProperties("AutheEnabled") = $$$AutheUnauthenticated + $$$AutheCache
   Set cspProperties("DeepSeeEnabled") = 1
   Set cspProperties("iKnowEnabled") = 0
-  Set cspProperties("Path") = "/opt/irisapp/csp/"
+  Set cspProperties("Path") = "/opt/feeder/csp/"
   Set cspProperties("Resource") = ""
   Set cspProperties("ServeFiles") = 1
   Set tSC = ##class(Security.Applications).Create(cspName,.cspProperties)
