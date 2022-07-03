@@ -10,7 +10,7 @@ FROM $IMAGE
 
 USER root
 
-WORKDIR /opt/irisapp
+WORKDIR /opt/feeder
 
 RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} .
 
@@ -30,6 +30,6 @@ SHELL ["/irissession.sh"]
 RUN \
   do $SYSTEM.OBJ.Load("Installer.cls", "ck") \
   set sc = ##class(App.Installer).setup() \
-  set ^|"IRISAPP"|UnitTestRoot = "/opt/irisapp/tests"
+  set ^|"FEEDER"|UnitTestRoot = "/opt/irisapp/tests"
 
 SHELL ["/bin/sh", "-c"]
