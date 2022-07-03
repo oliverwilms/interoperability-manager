@@ -15,14 +15,14 @@ Clone the repo, run:
 ```
 docker-compose up -d
 ```
-RUn the application with URL: http://localhost:52775/csp/coffee/index.html#/
+RUn the application with URL: http://localhost:57700/csp/irisapp/index.html#/
 ### ZPM way
 Open IRIS terminal and run ZPM:
 ```
 USER>zpm
 zpm:USER>install "demo-coffeemaker"
 ```
-Run the appliction in URL: http://yourserver:52775/csp/coffee/index.html#/
+Run the appliction in URL: http://yourserver:57700/csp/irisapp/index.html#/
 
 ## Development
 ### Prerequisites
@@ -52,22 +52,21 @@ THere is a [Github Actions CI workflow](https://github.com/intersystems-communit
 
 But you also can run the test script locally with:
 ```
-COFFEE>set ^UnitTestRoot="/irisdev/app/tests"
-COFFEE>do ##class(%UnitTest.Manager).RunTest()
+IRISAPP>set ^UnitTestRoot="/irisdev/app/tests"
+IRISAPP>do ##class(%UnitTest.Manager).RunTest()
 ```
 Or with ZPM:
 ```
-COFFEE>zpm
-zpm:COFFEE>load /irisdev/app
-zpm:COFFEE>test demo-coffeemaker
+IRISAPP>zpm
+zpm:IRISAPP>load /irisdev/app
+zpm:IRISAPP>test demo-coffeemaker
 ```
 
 ## ZPM Package Manager
 This module is zpm-packaged, which means that it is described with [module.xml](https://github.com/intersystems-community/iris-fullstack-template/blob/40d39a688df604ef11681c80fc24254a6570fe43/module.xml) and available in public repository and installable with:
-zpm "install demo-coffeemaker"
+zpm "install interoperability-manager"
 Feel free to use as an example and change the module.xml to package your own InterSystems IRIS full-stack solution.
 
 
 ## Credits
 Demo is built using original [Coffee Maker application](https://github.com/intersystems/FirstLook-REST) by Michael Smart a and it's enhanced version by [Caret Dev](https://github.com/caretdev/CoffeeMaker).
-
