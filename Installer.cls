@@ -6,33 +6,19 @@ XData setup
 <Manifest>
   <Default Name="APPDIR" Dir="#{$system.Process.CurrentDirectory()}" />
   <Default Name="SourceDir" Dir="${APPDIR}/src" />
-  <Default Name="NAMESPACE" Value="COFFEE" />
-  <Default Name="APPURL" Value="/csp/coffee" />
-  <Default Name="RESTURL" Value="/rest/coffeemakerapp" />
+  <Default Name="NAMESPACE" Value="IRISAPP" />
+  <Default Name="APPURL" Value="/csp/irisapp" />
+  <Default Name="RESTURL" Value="/rest/irisapp" />
   <Default Name="CSPPATH" Dir="${APPDIR}/csp" />
   <Default Name="DBRESOURCE" Value="%DB_${NAMESPACE}" />
 
-  <Resource
-    Name="${DBRESOURCE}" 
-    Description="CoffeeMaker"
-    Permission="RW"/>
+  <Resource Name="${DBRESOURCE}" Description="" Permission="RW"/>
 
-  <Namespace Name="${NAMESPACE}" Code="${NAMESPACE}-CODE" Data="${NAMESPACE}-DATA" Create="yes" Ensemble="no">
+  <Namespace Name="${NAMESPACE}" Code="${NAMESPACE}" Data="${NAMESPACE}" Create="yes" Ensemble="yes">
     <Configuration>
-      <Database 
-        Name="${NAMESPACE}-CODE" 
-        Dir="${APPDIR}/db/code"
-        Resource="${DBRESOURCE}" 
-        Create="yes" />
-      <Database 
-        Name="${NAMESPACE}-DATA" 
-        Dir="${APPDIR}/db/data" 
-        Resource="${DBRESOURCE}"
-        Create="yes" />
-        
+      <Database Name="${NAMESPACE}" Dir="${APPDIR}/db/irisapp" Resource="${DBRESOURCE}" Create="yes" />
       <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
     </Configuration>
-
     <CSPApplication 
       Url="${APPURL}"
       Description=""
@@ -43,7 +29,6 @@ XData setup
       LoginClass=""
       CookiePath="${APPURL}"
       AuthenticationMethods="32" />
-
   </Namespace>
 
   <Invoke Class="App.Installer" Method="SetupREST" CheckStatus="1">
