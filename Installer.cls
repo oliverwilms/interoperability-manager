@@ -14,7 +14,7 @@ XData setup
 
   <Resource Name="${DBRESOURCE}" Description="" Permission="RW"/>
 
-  <Namespace Name="${NAMESPACE}" Code="${NAMESPACE}" Data="${NAMESPACE}" Create="yes" Ensemble="yes">
+  <Namespace Name="${NAMESPACE}" Code="${NAMESPACE}" Data="${NAMESPACE}" Create="yes" Ensemble="1">
     <Configuration>
       <Database Name="${NAMESPACE}" Dir="${APPDIR}/db/irisapp" Resource="${DBRESOURCE}" Create="yes" />
       <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
