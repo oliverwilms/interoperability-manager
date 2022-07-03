@@ -15,14 +15,14 @@ Clone the repo, run:
 ```
 docker-compose up -d
 ```
-RUn the application with URL: http://localhost:57700/csp/irisapp/index.html#/
+RUn the application with URL: http://localhost:57700/irisapp/index.html#/
 ### ZPM way
 Open IRIS terminal and run ZPM:
 ```
 USER>zpm
-zpm:USER>install "demo-coffeemaker"
+zpm:USER>install "interoperability-manager"
 ```
-Run the appliction in URL: http://yourserver:57700/csp/irisapp/index.html#/
+Run the appliction in URL: http://yourserver:57700/irisapp/index.html#/
 
 ## Development
 ### Prerequisites
