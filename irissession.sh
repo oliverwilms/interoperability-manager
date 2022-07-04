@@ -6,7 +6,7 @@ cat << EOF | iris session $ISC_PACKAGE_INSTANCENAME -U %SYS
 do ##class(%SYSTEM.Process).CurrentDirectory("$PWD")
 new $namespace
 $@
-quit 
+#quit 
 if '\$Get(sc, 1) do ##class(%SYSTEM.Process).Terminate(, 1)
 do ##class(SYS.Container).QuiesceForBundling()
 do ##class(Security.Users).UnExpireUserPasswords("*")
