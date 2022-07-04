@@ -50,7 +50,7 @@ ClassMethod setup(ByRef pVars, pLogLevel As %Integer = 3, pInstaller As %Install
   Quit ##class(%Installer.Manifest).%Generate(%compiledclass, %code, "setup")
 }
 
-ClassMethod CreateWebAppIrisapp(pVars, pLogLevel, tInstaller) As %Status
+ClassMethod CreateWebAppFeederapp(pVars, pLogLevel, tInstaller) As %Status
 {
   New $Namespace
   Set $Namespace = "%SYS"
