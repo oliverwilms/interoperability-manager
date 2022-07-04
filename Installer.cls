@@ -17,8 +17,8 @@ XData setup
   <Namespace Name="${NAMESPACE}" Code="${NAMESPACE}" Data="${NAMESPACE}" Create="yes" Ensemble="1">
     <Configuration>
       <Database Name="${NAMESPACE}" Dir="${APPDIR}/db/${NAMESPACE}" Resource="${DBRESOURCE}" Create="yes" />
-      <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
     </Configuration>
+    <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
     <CSPApplication 
       Url="${APPURL}"
       Description=""
