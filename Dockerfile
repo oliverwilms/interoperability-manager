@@ -10,7 +10,7 @@ FROM $IMAGE
 
 USER root
 
-WORKDIR /opt/feeder
+WORKDIR /opt/irisapp
 
 RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} .
 
