@@ -9,7 +9,7 @@ XData setup
   <Default Name="NAMESPACE" Value="FEEDER" />
   <Default Name="APPURL" Value="/csp/feeder" />
   <Default Name="RESTURL" Value="/rest/feeder" />
-  <Default Name="CSPPATH" Dir="/opt/feeder/csp" />
+  <Default Name="CSPPATH" Dir="/opt/irisapp/csp" />
   <Default Name="DBRESOURCE" Value="%DB_${NAMESPACE}" />
 
   <Resource Name="${DBRESOURCE}" Description="" Permission="RW"/>
@@ -60,7 +60,7 @@ ClassMethod CreateWebAppIrisapp(pVars, pLogLevel, tInstaller) As %Status
   Set cspProperties("AutheEnabled") = $$$AutheUnauthenticated + $$$AutheCache
   Set cspProperties("DeepSeeEnabled") = 1
   Set cspProperties("iKnowEnabled") = 0
-  Set cspProperties("Path") = "/opt/feeder/csp/"
+  Set cspProperties("Path") = "/opt/irisapp/csp/"
   Set cspProperties("Resource") = ""
   Set cspProperties("ServeFiles") = 1
   Set tSC = ##class(Security.Applications).Create(cspName,.cspProperties)
