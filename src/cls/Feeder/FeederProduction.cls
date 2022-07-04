@@ -1,4 +1,4 @@
-Class Feeder.FeederProduction Extends Ens.Production Depends On Ens.Production
+Class Feeder.FeederProduction Extends Ens.Production
 {
 
 /*
