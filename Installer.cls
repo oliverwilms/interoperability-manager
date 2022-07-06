@@ -39,7 +39,7 @@ XData setup
     <Arg Value="${NAMESPACE}"/>
     <Arg Value="${RESTURL}"/>
     <Arg Value="${DBRESOURCE}"/>
-    <Arg Value="Demo.CoffeeMakerRESTServer"/>
+    <Arg Value="Feeder.REST"/>
   </Invoke>
 
 </Manifest>
