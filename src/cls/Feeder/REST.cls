@@ -184,7 +184,7 @@ ClassMethod GetProductionStatus() As %Status
 ClassMethod GetProductionStart() As %Status
 {
 	Do ..DebugTEST("Feeder.REST - GetProductionStart")
-	Set tSC = ##class(Ensemble).StartProduction()
+	//Set tSC = ##class(Ensemble).StartProduction()
 	Set status = ..StatusToText(tSC)
 	Set data = {}
 	Set data.Status = status
