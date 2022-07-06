@@ -55,8 +55,8 @@ ClassMethod GetBaseLogId() As %Status
 	Set tBaseLogId = 0
 	// Get base log event ID
 	Set query = "SELECT TOP 1 ID FROM Ens_Util.Log ORDER BY ID DESC"
-	Set tSC = ##class(Ensemble).ExecuteQueryOneValue(query,.tBaseLogId)
-	Set tBaseLogId = 1 + tBaseLogId
+	//Set tSC = ##class(Ensemble).ExecuteQueryOneValue(query,.tBaseLogId)
+	//Set tBaseLogId = 1 + tBaseLogId
 	Do ..DebugTEST("tBaseLogId = "_tBaseLogId)
 	Set data = {}
 	Set data.BaseLogId = tBaseLogId
@@ -70,8 +70,8 @@ ClassMethod GetBaseMsgId() As %Status
 	Set tBaseMsgId = 0
 	// Get base msg event ID
 	Set query = "SELECT TOP 1 ID FROM Ens.MessageHeader ORDER BY ID DESC"
-	Set tSC = ##class(Ensemble).ExecuteQueryOneValue(query,.tBaseMsgId)
-	Set tBaseMsgId = 1 + tBaseMsgId
+	//Set tSC = ##class(Ensemble).ExecuteQueryOneValue(query,.tBaseMsgId)
+	//Set tBaseMsgId = 1 + tBaseMsgId
 	Do ..DebugTEST("tBaseMsgId = "_tBaseMsgId)
 	Set data = {}
 	Set data.BaseMsgId = tBaseMsgId
@@ -85,14 +85,14 @@ ClassMethod GetBases() As %Status
 	Set tBaseLogId = 0
 	// Get base log event ID
 	Set query = "SELECT TOP 1 ID FROM Ens_Util.Log ORDER BY ID DESC"
-	Set tSC = ##class(Ensemble).ExecuteQueryOneValue(query,.tBaseLogId)
-	Set tBaseLogId = 1 + tBaseLogId
+	//Set tSC = ##class(Ensemble).ExecuteQueryOneValue(query,.tBaseLogId)
+	//Set tBaseLogId = 1 + tBaseLogId
 	Do ..DebugTEST("tBaseLogId = "_tBaseLogId)
 	Set tBaseMsgId = 0
 	// Get base msg event ID
 	Set query = "SELECT TOP 1 ID FROM Ens.MessageHeader ORDER BY ID DESC"
-	Set tSC = ##class(Ensemble).ExecuteQueryOneValue(query,.tBaseMsgId)
-	Set tBaseMsgId = 1 + tBaseMsgId
+	//Set tSC = ##class(Ensemble).ExecuteQueryOneValue(query,.tBaseMsgId)
+	//Set tBaseMsgId = 1 + tBaseMsgId
 	Do ..DebugTEST("tBaseMsgId = "_tBaseMsgId)
 	Set data = {}
 	Set data.BaseLogId = tBaseLogId
@@ -124,7 +124,7 @@ ClassMethod CheckMessages(pBaseMsgId As %String = "") As %Status
 	If (pBaseMsgId = "<undefined>") {
 		Set n = "<undefined>"
 	} Else {
-		Set s = ##class(Ensemble).GetMessages("error", "", pBaseMsgId, .v, .n, .pBegin, .pEnd) // Retrieve Messages
+		//Set s = ##class(Ensemble).GetMessages("error", "", pBaseMsgId, .v, .n, .pBegin, .pEnd) // Retrieve Messages
 	}
 	Set data = {}
 	Set data.MsgCount = $Get(n,-1)
@@ -159,7 +159,7 @@ ClassMethod GetDocumentId() As %Status
 ClassMethod GetProdItemEnable(pConfigItemName As %String, pEnable As %Boolean = 1, pDoUpdate As %Boolean = 1) As %Status
 {
 	Do ..DebugTEST("Feeder.REST - GetProdItemEnable - "_pConfigItemName_" - "_pEnable_" - "_pDoUpdate)
-	Set tSC = ##class(Ensemble).EnableConfigItem(pConfigItemName, pEnable, pDoUpdate)
+	//Set tSC = ##class(Ensemble).EnableConfigItem(pConfigItemName, pEnable, pDoUpdate)
 	Do ..DebugStatus(tSC)
 	Set status = ..StatusToText(tSC)
 	Set data = {}
@@ -171,7 +171,7 @@ ClassMethod GetProdItemEnable(pConfigItemName As %String, pEnable As %Boolean = 
 ClassMethod GetProductionStatus() As %Status
 {
 	Do ..DebugTEST("Feeder.REST - GetProductionStatus")
-	Set tSC = ##class(Ensemble).GetProductionStatus(.pProductionName, .pState)
+	//Set tSC = ##class(Ensemble).GetProductionStatus(.pProductionName, .pState)
 	//Do ..DebugTEST("pProductionName = "_pProductionName)
 	Do ..DebugTEST("pState = "_pState)
 	Set data = {}
@@ -195,7 +195,7 @@ ClassMethod GetProductionStart() As %Status
 ClassMethod GetProductionStop() As %Status
 {
 	Do ..DebugTEST("Feeder.REST - GetProductionStop")
-	Set tSC = ##class(Ensemble).StopProduction()
+	//Set tSC = ##class(Ensemble).StopProduction()
 	Set status = ..StatusToText(tSC)
 	Set data = {}
 	Set data.Status = status
@@ -274,7 +274,7 @@ ClassMethod UploadFileNewGetService(pFILENAME As %String = "") As %String
 	Set tReturn = "InboundDLA"  // Default - Catch All
 	For tService = "ETfromDMLSS", "FAfromDMLSS", "FedRRfromDMLSS", "MOfromDMLSS", "NonFedRRfromDMLSS" {
 		Set tPosition = 1
-		Set tSC = ##class(Ensemble).GetSetting("",tService,"FileSpec",.tFileSpec)
+		//Set tSC = ##class(Ensemble).GetSetting("",tService,"FileSpec",.tFileSpec)
 		If $$$ISERR(tSC) Continue
 		Set tPosition = $Find(tFileSpec,"*",tPosition)
 		If tPosition {
