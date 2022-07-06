@@ -2,7 +2,7 @@
   "objectscript.conn": {
     "username": "_SYSTEM",
     "password": "SYS",
-    "ns": "COFFEE",
+    "ns": "IRISAPP",
     "docker-compose": {
       "service": "iris",
       "internalPort": 52773
