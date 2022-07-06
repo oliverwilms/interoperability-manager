@@ -19,6 +19,7 @@ XData setup
       <Database Name="${NAMESPACE}" Dir="${APPDIR}/db/${NAMESPACE}" Resource="${DBRESOURCE}" Create="yes" />
     </Configuration>
     <Import File="${SourceDir}" Flags="ck" Recurse="1"/>
+    <Production Name="Feeder.FeederProduction" AutoStart="1"/>
     <CSPApplication 
       Url="${APPURL}"
       Description=""
