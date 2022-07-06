@@ -26,7 +26,7 @@ function goClickRemove(item)
 				document.getElementById("div_debug").innerHTML = this.responseText;
 			}
 		}
-		xhttp.open("POST", "/restapi/Production/Item/Remove/" + item, true, "_SYSTEM", "SYS");
+		xhttp.open("POST", "/rest/irisapp/Production/Item/Remove/" + item, true, "_SYSTEM", "SYS");
 		//xhttp.open("GET", "/restapi/BaseLogId", true);
 		xhttp.send();
 	};
