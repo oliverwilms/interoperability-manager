@@ -110,7 +110,7 @@ ClassMethod CheckErrors(pBaseLogId As %String = "") As %Status
 	If (pBaseLogId = "<undefined>") {
 		Set n = "<undefined>"
 	} Else {
-		Set s = ##class(Ensemble).GetEventLog("error", "", pBaseLogId, .Err, .n) // Retrieve all records of type "Error"
+		//Set s = ##class(Ensemble).GetEventLog("error", "", pBaseLogId, .Err, .n) // Retrieve all records of type "Error"
 	}
 	Set data = {}
 	Set data.ErrCount = $Get(n,-1)
