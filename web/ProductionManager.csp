@@ -12,21 +12,24 @@ Set tSC = $CLASSMETHOD(tMonitor,tClassMethod,.pInfo,.pNada)
 <script language="JavaScript">
 function goClickRemove(item)
 {
-	alert('click'+item);
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		alert('this.status = ' + this.status);
-		if (this.readyState == 4) {
-			document.getElementById("div_debug").innerHTML = this.responseText;
-			document.getElementById("div_debug").innerHTML += this.getAllResponseHeaders();
+	var prompt = "Do you want to delete " + item + "?";
+	if (confirm(prompt) == true) {
+		alert('click'+item);
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			//alert('this.status = ' + this.status);
+			if (this.readyState == 4) {
+				document.getElementById("div_debug").innerHTML = this.responseText;
+				document.getElementById("div_debug").innerHTML += this.getAllResponseHeaders();
+			}
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("div_debug").innerHTML = this.responseText;
+			}
 		}
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("div_debug").innerHTML = this.responseText;
-		}
+		xhttp.open("POST", "/restapi/Production/Item/Remove/" + item, true, "_SYSTEM", "SYS");
+		//xhttp.open("GET", "/restapi/BaseLogId", true);
+		xhttp.send();
 	};
-	xhttp.open("POST", "/restapi/Production/Item/Remove/" + item, true, "_SYSTEM", "SYS");
-	//xhttp.open("GET", "/restapi/BaseLogId", true);
-	xhttp.send();
 }
 </script>
 <!-- Put your page Title here -->
