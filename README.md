@@ -32,9 +32,6 @@ This repository is ready to code in VSCode with ObjectScript plugin.
 Install [VSCode](https://code.visualstudio.com/), [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) and [ObjectScript](https://marketplace.visualstudio.com/items?itemName=daimor.vscode-objectscript) plugin and open the folder in VSCode.
 
 
-This is a template. So use template button in Github and create a new repository with copy of iris-fullstack-template.
-![template](https://user-images.githubusercontent.com/2781759/93434019-4142bc00-f8d0-11ea-9b09-0e64501dde53.gif)
-Clone your repository.
 Open the folder with VSCode.
 Build container as it is shown in the gif:
 ![template-build](https://user-images.githubusercontent.com/2781759/93434498-ebbadf00-f8d0-11ea-992e-3197f007d3bf.gif)
