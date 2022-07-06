@@ -47,20 +47,8 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
     <Setting Target="Adapter" Name="WorkPath"></Setting>
   </Item>
-  <Item Name="PEX Operation" Category="" ClassName="Feeder.MIMEOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Host" Name="Port">9980</Setting>
-    <Setting Target="Host" Name="URL"></Setting>
-  </Item>
-  <Item Name="POC Operation" Category="" ClassName="Feeder.POCOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Host" Name="FailureTimeout">600</Setting>
-    <Setting Target="Host" Name="RetryInterval">300</Setting>
-    <Setting Target="Adapter" Name="Credentials">POC</Setting>
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="URL">/csp/healthshare/poc/IncomingPOC/GetInternalCustomerCatalog?SiteID=668</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-  </Item>
+  
+  
   <Item Name="POC Feeder Service" Category="" ClassName="EnsLib.File.PassthroughService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="TargetConfigNames">POC Operation</Setting>
     <Setting Target="Adapter" Name="FilePath">/tmp/</Setting>
@@ -71,21 +59,7 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="FileSpec">pou*</Setting>
     <Setting Target="Host" Name="TargetConfigNames">POU Operation</Setting>
   </Item>
-  <Item Name="POU Operation" Category="" ClassName="Feeder.POUOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="URL">/csp/healthshare/pou/IncomingPOU668/Upload</Setting>
-    <Setting Target="Adapter" Name="Credentials">POU</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-  </Item>
-  <Item Name="FSC Operation" Category="" ClassName="Feeder.FSCOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Adapter" Name="URL"><![CDATA[/csp/healthshare/restpassthrough/IncomingFSC/oblh?SITEID=668&tnum=636T82481&lnum=002]]></Setting>
-  </Item>
+  
   <Item Name="FSC Feeder Service" Category="" ClassName="EnsLib.File.PassthroughService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="TargetConfigNames">FSC Operation</Setting>
     <Setting Target="Adapter" Name="FilePath">/tmp/</Setting>
@@ -112,34 +86,7 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
     <Setting Target="Host" Name="ArchiveIO">1</Setting>
   </Item>
-  <Item Name="DLA Operation" Category="" ClassName="Feeder.DLAOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="URL">/csp/healthshare/dlain/IncomingDLAIN/</Setting>
-    <Setting Target="Host" Name="AlertOnError">1</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Adapter" Name="Credentials"></Setting>
-  </Item>
-  <Item Name="certsubmit" Category="" ClassName="Feeder.certsubmit" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="URL">/msg_data/certsubmit?channel=DMLSS-TE1VR-O-RCOM</Setting>
-    <Setting Target="Host" Name="AlertOnError">1</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Adapter" Name="Credentials"></Setting>
-    <Setting Target="Adapter" Name="HTTPServer">scm-iris-tls-webgateway.apps.vapo-aws-dsoi-dev.va.gov</Setting>
-  </Item>
-  <Item Name="Upload" Category="" ClassName="Feeder.Upload" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Adapter" Name="Credentials"></Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="HTTPServer">dmlss-iris-dev-nlb-3b3cc3b1c3786beb.elb.us-gov-west-1.amazonaws.com</Setting>
-    <Setting Target="Adapter" Name="URL">/dmlss/edidaasc/Upload?SITEID=668</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-  </Item>
+  
   <Item Name="Upload Feeder Service" Category="" ClassName="EnsLib.File.PassthroughService" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/tmp/upload</Setting>
     <Setting Target="Adapter" Name="FileSpec">*</Setting>
@@ -148,16 +95,7 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
     <Setting Target="Host" Name="ArchiveIO">1</Setting>
   </Item>
-  <Item Name="certsubmit-nlb" Category="" ClassName="Feeder.certsubmit" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="URL">/msg_data/certsubmit?channel=DMLSS-TE1VR-O-RCOM</Setting>
-    <Setting Target="Host" Name="AlertOnError">1</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Adapter" Name="Credentials"></Setting>
-    <Setting Target="Adapter" Name="HTTPServer">dmlss-iris-dev-nlb-3b3cc3b1c3786beb.elb.us-gov-west-1.amazonaws.com</Setting>
-  </Item>
+  
   <Item Name="DCT Operation" Category="" ClassName="EnsLib.FTP.PassthroughOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Adapter" Name="FTPPort">2022</Setting>
     <Setting Target="Adapter" Name="Credentials">CAP</Setting>
@@ -168,12 +106,7 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="FTPServer">dmlss-iris-dev-nlb-3b3cc3b1c3786beb.elb.us-gov-west-1.amazonaws.com</Setting>
     <Setting Target="Host" Name="ArchiveIO">1</Setting>
   </Item>
-  <Item Name="FSC deletedVendors Operation" Category="" ClassName="Feeder.FSCOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-  </Item>
+  
   <Item Name="FSC deletedVendors Service" Category="" ClassName="EnsLib.File.PassthroughService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="TargetConfigNames">FSC deletedVendors Operation</Setting>
     <Setting Target="Adapter" Name="FilePath">/tmp/</Setting>
@@ -209,15 +142,7 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="FileSpec">w*</Setting>
     <Setting Target="Host" Name="TargetConfigNames">Wavemark Operation</Setting>
   </Item>
-  <Item Name="UploadFiles" Category="" ClassName="Feeder.certsubmit" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Adapter" Name="Credentials"></Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="HTTPServer">dmlss-iris-dev-nlb-3b3cc3b1c3786beb.elb.us-gov-west-1.amazonaws.com</Setting>
-    <Setting Target="Adapter" Name="URL">/dmlss/edidaasc/Upload?TargetOp=POCResponseFile663</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-  </Item>
+  
   <Item Name="UploadFiles Feeder Service" Category="" ClassName="EnsLib.File.PassthroughService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/tmp/upload</Setting>
     <Setting Target="Adapter" Name="FileSpec">Response_663*</Setting>
@@ -226,14 +151,7 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
     <Setting Target="Host" Name="ArchiveIO">1</Setting>
   </Item>
-  <Item Name="CDW Operation" Category="" ClassName="Feeder.UploadFiles" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
-    <Setting Target="Adapter" Name="Credentials"></Setting>
-    <Setting Target="Adapter" Name="SSLConfig">DMLSS_CLIENT</Setting>
-    <Setting Target="Host" Name="ArchiveIO">1</Setting>
-    <Setting Target="Adapter" Name="HTTPPort">443</Setting>
-    <Setting Target="Adapter" Name="URL">/csp/healthshare/restpassthrough/IncomingCDW?SITEID=556</Setting>
-    <Setting Target="Adapter" Name="SSLCheckServerIdentity">0</Setting>
-  </Item>
+  
   <Item Name="CDW Feeder Service" Category="" ClassName="EnsLib.File.PassthroughService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/tmp/cdw</Setting>
     <Setting Target="Adapter" Name="FileSpec">*tgz</Setting>
