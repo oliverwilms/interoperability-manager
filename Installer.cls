@@ -55,8 +55,8 @@ ClassMethod CreateWebAppFeederapp(pVars, pLogLevel, tInstaller) As %Status
 {
   New $Namespace
   Set $Namespace = "%SYS"
-  Set cspName = "/feederapp"
-  Set cspProperties("NameSpace") = $Get(Namespace,"FEEDER")
+  Set cspName = "/irisapp"
+  Set cspProperties("NameSpace") = $Get(Namespace,"IRISAPP")
   Set cspProperties("Enabled") = 1
   Set cspProperties("AutheEnabled") = $$$AutheUnauthenticated + $$$AutheCache
   Set cspProperties("DeepSeeEnabled") = 1
