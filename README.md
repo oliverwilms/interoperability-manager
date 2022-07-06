@@ -31,11 +31,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 This repository is ready to code in VSCode with ObjectScript plugin.
 Install [VSCode](https://code.visualstudio.com/), [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) and [ObjectScript](https://marketplace.visualstudio.com/items?itemName=daimor.vscode-objectscript) plugin and open the folder in VSCode.
 
-
-Open the folder with VSCode.
-Build container as it is shown in the gif:
-![template-build](https://user-images.githubusercontent.com/2781759/93434498-ebbadf00-f8d0-11ea-992e-3197f007d3bf.gif)
-or open the terminal and run:
+Open the terminal and run:
 ```
 docker-compose up -d
 ```
