@@ -27,6 +27,11 @@ kill ^ISCLOG
 set ^%ISCLOG=3
 ```
 
+## export a global in runtime into the repo
+```
+d $System.OBJ.Export("GlobalD.GBL","/irisrun/repo/src/gbl/GlobalD.xml")
+```
+
 ## select zpm test registry
 ```
 repo -n registry -r -url https://test.pm.community.intersystems.com/registry/ -user test -pass PassWord42
