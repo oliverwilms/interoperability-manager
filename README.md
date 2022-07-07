@@ -9,7 +9,7 @@ It has Unit tests which could be run interactively, or using ZPM, or via Github 
 It demoes the way to develop using Docker containers.
 It demoes how to package the application in ZPM module and how to deploy it using ZPM.
 I include a sample Production 
-
+![screenshot](https://github.com/oliverwilms/bilder/blob/main/Capture_Production.PNG)
 ## Installation
 ### Docker way
 Clone the repo, run:
