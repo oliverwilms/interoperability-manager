@@ -33,7 +33,7 @@ function goClickRemove(item)
 }
 </script>
 <!-- Put your page Title here -->
-<title>	Production Monitor </title>
+<title>	Production Manager </title>
 <style type="text/css">
 body { font-family: "Source Sans Pro",Futura,Arial,sans-serif; }
 .Lamp {
