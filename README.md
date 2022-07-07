@@ -9,17 +9,18 @@ It has Unit tests which could be run interactively, or using ZPM, or via Github 
 It demoes the way to develop using Docker containers.
 It demoes how to package the application in ZPM module and how to deploy it using ZPM.
 I include a sample Production 
+RUn the application with URL: http://localhost:57700/irisapp/index.html#/
 ![screenshot](https://github.com/oliverwilms/bilder/blob/main/Capture_Production.PNG)
 ## Want to delete a Production Item with two clicks?
-First click on any item in the "Remove Item" column ...![screenshot](https://github.com/oliverwilms/bilder/blob/main/ProductionManager.PNG)
-Second click OK button, if you are sure.![screenshot](https://github.com/oliverwilms/bilder/blob/main/Capture_Prompt_Remove.PNG)
+### First click on any item in the "Remove Item" column ...![screenshot](https://github.com/oliverwilms/bilder/blob/main/ProductionManager.PNG)
+### Second click OK button, if you are sure.![screenshot](https://github.com/oliverwilms/bilder/blob/main/Capture_Prompt_Remove.PNG)
 ## Installation
 ### Docker way
 Clone the repo, run:
 ```
 docker-compose up -d
 ```
-RUn the application with URL: http://localhost:57700/irisapp/index.html#/
+
 ### ZPM way
 Open IRIS terminal and run ZPM:
 ```
