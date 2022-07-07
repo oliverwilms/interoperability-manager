@@ -12,6 +12,8 @@ I include a sample Production
 ![screenshot](https://github.com/oliverwilms/bilder/blob/main/Capture_Production.PNG)
 ## Want to delete a Production Item with two clicks?
 ![screenshot](https://github.com/oliverwilms/bilder/blob/main/ProductionManager.PNG)
+First click on any item in the "Remove Item" column ...
+![screenshot](https://github.com/oliverwilms/bilder/blob/main/Capture_Prompt_Remove.PNG)
 ## Installation
 ### Docker way
 Clone the repo, run:
