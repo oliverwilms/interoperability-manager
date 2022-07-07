@@ -75,7 +75,7 @@ ClassMethod ImportGBL(pVars, pLogLevel, tInstaller) As %Status
 {
   New $Namespace
   Set $Namespace = "IRISAPP"
-  Set tSC = ##class($SYSTEM.OBJ).Load("/opt/irisapp/src/gbl/Ens.MessageHeaderD.xml")
+  Set tSC = $SYSTEM.OBJ.Load("/opt/irisapp/src/gbl/Ens.MessageHeaderD.xml")
   Set tSC = ##class(Ens.MessageHeader).%BuildIndices(,1)  // Purge before Rebuild
   Quit tSC
 }
