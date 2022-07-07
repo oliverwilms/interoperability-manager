@@ -35,6 +35,7 @@ XData setup
     <Log Text="Creating web application /feederapp" Level="0"/>
     <RunInstall Class="App.Installer" Method="CreateWebAppFeederapp"/>
   </If>
+  <RunInstall Class="App.Installer" Method="ImportGBL"/>
   <Invoke Class="App.Installer" Method="SetupREST" CheckStatus="1">
     <Arg Value="${NAMESPACE}"/>
     <Arg Value="${RESTURL}"/>
@@ -70,7 +71,7 @@ ClassMethod CreateWebAppFeederapp(pVars, pLogLevel, tInstaller) As %Status
   Quit $$$OK
 }
 
-ClassMethod ImportGBL() As %Status
+ClassMethod ImportGBL(pVars, pLogLevel, tInstaller) As %Status
 {
   New $Namespace
   Set $Namespace = "IRISAPP"
