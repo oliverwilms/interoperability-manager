@@ -70,6 +70,15 @@ ClassMethod CreateWebAppFeederapp(pVars, pLogLevel, tInstaller) As %Status
   Quit $$$OK
 }
 
+ClassMethod ImportGBL() As %Status
+{
+  New $Namespace
+  Set $Namespace = "IRISAPP"
+  Set tSC = ##class($SYSTEM.OBJ.Load("/opt/irisapp/src/gbl/Ens.MessageHeaderD.xml")
+  Set tSC = ##class(Ens.MessageHeader).%BuildIndices(,1)  // Purge before Rebuild
+  Quit tSC
+}
+
 ClassMethod SetupREST(pNameSpace As %String, pUrl As %String, pResource As %String, pClass As %String) As %Status
 {
   New $Namespace
