@@ -31,7 +31,7 @@ XData setup
       CookiePath="${APPURL}"
       AuthenticationMethods="32" />
   </Namespace>
-  <If Condition='(##class(Security.Applications).Exists("/feederapp")=0)'>
+  <If Condition='(##class(Security.Applications).Exists("/irisapp")=0)'>
     <Log Text="Creating web application /feederapp" Level="0"/>
     <RunInstall Class="App.Installer" Method="CreateWebAppFeederapp"/>
   </If>
