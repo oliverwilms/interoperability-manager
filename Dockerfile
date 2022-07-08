@@ -6,8 +6,11 @@ ARG IMAGE=intersystemsdc/iris-community:2020.3.0.200.0-zpm
 ARG IMAGE=intersystemsdc/iris-community
 FROM $IMAGE
 
-
 USER root
+WORKDIR /opt/unittests
+RUN mkdir /opt/unittests/interoperability-manager
+RUN chown -R ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/unittests
+COPY --chown=${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} tests/UnitTest/interoperability/manager/test.cls interoperability-manager/test.cls
 
 WORKDIR /opt/irisapp
 
