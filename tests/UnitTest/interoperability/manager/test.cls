@@ -4,7 +4,7 @@ Class UnitTest.interoperability.manager.test Extends %UnitTest.TestCase
 ClassMethod Go() As %Status
 {
 	Set ^UnitTestRoot="/opt/unittests"
-	Set tSC = ##class(%UnitTest.Manager).RunTest("test-data","/loadudl")
+	Set tSC = ##class(%UnitTest.Manager).RunTest("interoperability-manager","/loadudl")
 	Quit tSC
 }
 
