@@ -10,5 +10,5 @@ services:
 #      - ./web:/opt/irisapp/csp
 #      - ./tests:/opt/irisapp/tests
 #      - ./:/irisdev/app
-      - /efs/ICS:/ICS
-      - /efs/ICS/iris.key:/usr/irissys/mgr/iris.key
+#      - /efs/ICS:/ICS
+#      - /efs/ICS/iris.key:/usr/irissys/mgr/iris.key
