@@ -62,7 +62,7 @@ Do ##class(%UnitTest.Manager).RunTest("operability-manager","/loadudl")
 ```
 
 ## ZPM Package Manager
-This module is zpm-packaged, which means that it is described with [module.xml](https://github.com/intersystems-community/iris-fullstack-template/blob/40d39a688df604ef11681c80fc24254a6570fe43/module.xml) and available in public repository and installable with:
+This module is zpm-packaged, which means that it is described with [module.xml](https://github.com/oliverwilms/interoperability-manager/blob/master/module.xml) and available in public repository and installable with:
 zpm "install interoperability-manager"
 
 ## Credits
