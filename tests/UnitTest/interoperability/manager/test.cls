@@ -8,23 +8,21 @@ ClassMethod Go() As %Status
 	Quit tSC
 }
 
-Method TestDemo2()
+Method TestRESTapi()
 {
-	Set tDir = "/opt/transform/practice"
-	Set tFilesDemo2 = "output_DE*"  // filename after BPL
-	Set tCountBefore = ##class(dc.iris.util).FilesCount(tDir,tFilesDemo2)
-	Do ..LogMessage(tCountBefore_" "_tFilesDemo2_" files before.")
-	Set tSC = ##class(dc.iris.facture).TestProductDefined()
-	Do $$$AssertEquals(tSC,1, "TestProductDefined")
-	Set tMakeFilesQuantity = 2
-	Do ..LogMessage("tMakeFilesQuantity = "_tMakeFilesQuantity)
-	Set tSC = ##class(dc.iris.facture).Manufacture(2,tMakeFilesQuantity)
-	Do $$$AssertEquals(tSC,1, "Manufacture")
-	// Allow time to transform file(s)
-	Hang 15
-	Set tCountAfter = ##class(dc.iris.util).FilesCount(tDir,tFilesDemo2)
-	Do ..LogMessage(tCountAfter_" "_tFilesDemo2_" files after 15 seconds.")
-	Do $$$AssertEquals(tCountAfter,(tCountBefore+tMakeFilesQuantity),"Files count")
+	Set tCountBefore = ##class(User.ProductionMonitor).GetConfigItems()
+	Do ..LogMessage(tCountBefore_" ConfigItems before.")
+	Set tConfigItem = "FSC deletedVendors Service"
+	Set tType = "POST"
+	Set tURL = "/rest/irisapp/Production/Item/Remove/"_tConfigItem
+	Set tURL = ##class(%CSP.Page).EscapeURL(tURL)
+	Set tSC = ##class(User.Util).CallRESTapi(0,tURL,.tResponseData,tType)
+	Do $$$AssertEquals(tSC,1, "CallRESTapi")
+	// Allow time to save Production
+	Hang 1
+	Set tCountAfter = ##class(User.ProductionMonitor).GetConfigItems()
+	Do ..LogMessage(tCountAfter_" ConfigItems after.")
+	Do $$$AssertEquals(tCountAfter,(tCountBefore-1),"TestRESTapi")
 }
 
 }
