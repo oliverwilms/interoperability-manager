@@ -48,5 +48,5 @@ Set ^UnitTestRoot="/opt/unittests"
 
 This app utilizes a specific directory for UnitTests. The directory name, in this case interoperability-manager, is the name for a suite of tests and is also a child of the directory specified by ^UnitTestRoot. Running %UnitTest.Manager.RunTest(“interoperability-manager”) runs all of the tests stored in the interoperability-manager directory. Since we are using .cls files rather than XML files, we must supply the /loadudl qualifier to RunTest.
 ```
-Do ##class(%UnitTest.Manager).RunTest("operability-manager","/loadudl")
+Do ##class(%UnitTest.Manager).RunTest("interoperability-manager","/loadudl")
 ```
