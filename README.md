@@ -2,16 +2,12 @@
  [![Quality Gate Status](https://community.objectscriptquality.com/api/project_badges/measure?project=intersystems_iris_community%2Firis-fullstack-template&metric=alert_status)](https://community.objectscriptquality.com/dashboard?id=intersystems_iris_community%2Firis-fullstack-template)
  [![Reliability Rating](https://community.objectscriptquality.com/api/project_badges/measure?project=intersystems_iris_community%2Firis-fullstack-template&metric=reliability_rating)](https://community.objectscriptquality.com/dashboard?id=intersystems_iris_community%2Firis-fullstack-template)
 # interoperability-manager created from InterSystems IRIS Full Stack demo and template
-This repository contains a sample application which consists of InterSystems IRIS REST API and Frontend Application which demoes a coffee-maker shop. 
+I was inspired to create this app when I read a post on Developer Community.
 
-It demonstrates the way to communicate with InterSystes IRIS from any frontend application.
-It has Unit tests which could be run interactively, or using ZPM, or via Github CI.
-It demoes the way to develop using Docker containers.
-It demoes how to package the application in ZPM module and how to deploy it using ZPM.
 I include a sample Production 
 
 ![screenshot](https://github.com/oliverwilms/bilder/blob/main/Capture_Production.PNG)
-## Want to delete a Production Item with two clicks?
+## Do you want to delete a Production Item with two clicks?
 Direct your browser to URL: http://localhost:57700/irisapp/ProductionManager.csp
 ### First click on any item in the "Remove Item" column ...![screenshot](https://github.com/oliverwilms/bilder/blob/main/ProductionManager.PNG)
 ### Second click OK button, if you are sure.![screenshot](https://github.com/oliverwilms/bilder/blob/main/Capture_Prompt_Remove.PNG)
@@ -46,7 +42,8 @@ All set. You good to start the development.
 ## Unit Testing
 This repository has [U]nit Tests](https://github.com/intersystems-community/iris-fullstack-template/blob/787acb10efae8847e3084db26c3e4211bd5a753a/tests/UnitTest/Demo/coffeemaker.cls).
 THere is a [Github Actions CI workflow](https://github.com/intersystems-community/iris-fullstack-template/blob/787acb10efae8847e3084db26c3e4211bd5a753a/.github/workflows/main.yml) in this repo, which performs unit testing with every push to Github repository and fails if tests fail.
-## test-data Unit Tests
+
+## interoperability-manager Unit Test
 
 Open IRIS terminal:
 
