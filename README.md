@@ -68,4 +68,4 @@ Feel free to use as an example and change the module.xml to package your own Int
 
 
 ## Credits
-Demo is built using original [Coffee Maker application](https://github.com/intersystems/FirstLook-REST) by Michael Smart a and it's enhanced version by [Caret Dev](https://github.com/caretdev/CoffeeMaker).
+InterSystems IRIS Full Stack demo and template is built using original [Coffee Maker application](https://github.com/intersystems/FirstLook-REST) by Michael Smart and it's enhanced version by [Caret Dev](https://github.com/caretdev/CoffeeMaker).
