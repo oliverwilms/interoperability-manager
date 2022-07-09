@@ -23,7 +23,7 @@ ClassMethod CallRESTapi(pIris As %String, pUrl As %String, ByRef pResponseData A
 {
 	#define maxRetries 2
 	#define timeout 3
-	Do ..DebugTEST("Feeder.Util - CallRESTapi")
+	Do ..DebugTEST("User.Util - CallRESTapi")
 	Do ..DebugTEST("pIris = "_$Get(pIris))
 	Do ..DebugTEST("pUrl = "_$Get(pUrl))
 	Set tErrorCount = 0
