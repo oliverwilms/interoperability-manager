@@ -24,7 +24,6 @@ body {
    width: 13%;
    display: inline-block;
    margin: 10px 20px;
-   position: relative;
 }
 
 .model {
@@ -92,7 +91,7 @@ label {
   display: inline-block;
   width: 140px;
   text-align: right;
-}​
+}
 
 input[type="text"] {
   padding: 10px;
