@@ -27,22 +27,21 @@ ClassMethod CreateDocumentation(
 	Quit tSC
 }
 
-ClassMethod GetConfigItems() As %Status
+ClassMethod GetConfigItems() As %String
 {
 	Set tStatement = ##class(%SQL.Statement).%New()
 	Set tSC = tStatement.%PrepareClassQuery("Ens.Config.Production","EnumerateConfigItems")
-	Write tSC,!
 	#Dim exp As %Exception.SystemException
 	#Dim rset As %SQL.StatementResult
 	Set rset = tStatement.%Execute()
-	Write rset,!
-	Write rset.%SQLCODE,!
+	Set tCount = 0
 	While rset.%Next() {
 		// ROWSPEC = "ConfigName:%String,CommentOrClassName:%String,Enabled:%Boolean,BusinessType:%Integer,ClassName:%String,RequestClasses:%String,ResponseClasses:%String,Production:%String,ItemId:%Integer,SeqNum:%String,BusPartner:%String,Categories:%String,AlertGroups:%String"
-		//Write rset.%ROWCOUNT,!
+		Write rset.%ROWCOUNT,!
 		Try {
 			Set tConfigName = rset.%GetData(1)
 			Set tEnabled = rset.%GetData(3)
+			Set tCount = tCount + 1
 		} Catch exp {
 			Write "CATCH",!
 			Write exp,!
@@ -50,7 +49,7 @@ ClassMethod GetConfigItems() As %Status
 		}
 		Write $Get(tConfigName)," ",$Get(tEnabled),!
 	}
-	Quit tSC
+	Quit tCount
 }
 
 /// Get information about currently running hosts and place it into
