@@ -46,6 +46,23 @@ All set. You good to start the development.
 ## Unit Testing
 This repository has [U]nit Tests](https://github.com/intersystems-community/iris-fullstack-template/blob/787acb10efae8847e3084db26c3e4211bd5a753a/tests/UnitTest/Demo/coffeemaker.cls).
 THere is a [Github Actions CI workflow](https://github.com/intersystems-community/iris-fullstack-template/blob/787acb10efae8847e3084db26c3e4211bd5a753a/.github/workflows/main.yml) in this repo, which performs unit testing with every push to Github repository and fails if tests fail.
+## test-data Unit Tests
+
+Open IRIS terminal:
+
+```
+docker-compose exec iris iris session iris
+```
+
+The first command needs to be run once
+```
+Set ^UnitTestRoot="/opt/unittests"
+```
+
+This app utilizes a specific directory for UnitTests. The directory name, in this case interoperability-manager, is the name for a suite of tests and is also a child of the directory specified by ^UnitTestRoot. Running %UnitTest.Manager.RunTest(“interoperability-manager”) runs all of the tests stored in the interoperability-manager directory. Since we are using .cls files rather than XML files, we must supply the /loadudl qualifier to RunTest.
+```
+Do ##class(%UnitTest.Manager).RunTest("operability-manager","/loadudl")
+```
 
 But you also can run the test script locally with:
 ```
