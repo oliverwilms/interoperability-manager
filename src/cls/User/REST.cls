@@ -39,6 +39,7 @@ ClassMethod PostProdItemRemove(pConfigItemName As %String) As %Status
 	Set tProduction = ##class(Ens.Config.Production).%OpenId(pProd)
 	Set tItem = tProduction.FindItemByConfigName(pConfigItemName,.tSC)
 	Do ..DebugStatus(tSC)
+	If $$$ISERR(tSC) { Quit tSC }
 	Do ..DebugTEST("tItem = "_$Get(tItem))
 	Do tProduction.RemoveItem(tItem)
 	Set tSC = tProduction.%Save()
@@ -47,7 +48,7 @@ ClassMethod PostProdItemRemove(pConfigItemName As %String) As %Status
 	Set data = {}
 	Set data.Status = status
 	Write data.%ToJSON()
-	Quit $$$OK
+	Quit tSC
 }
 
 ClassMethod TEST(FILENAME As %String = "") As %Status
