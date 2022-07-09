@@ -1,6 +1,24 @@
 Class User.Util
 {
 
+ClassMethod DebugTEST(strMessage As %String = "") As %Status
+{
+	Set ^TESTunit($I(^TESTunit)) = $ZDateTime($NOW(),8,1,3)_" : "_$JOB_" : "_strMessage
+	Quit $$$OK
+}
+
+ClassMethod StatusToText(pStatus As %Status) As %String
+{
+	Set tReturn = $System.Status.GetOneErrorText(pStatus)
+	Quit tReturn
+}
+
+ClassMethod DebugStatus(pStatus As %Status) As %Status
+{
+	Set tStatus = ..StatusToText(pStatus)
+	Quit ..DebugTEST(tStatus)
+}
+
 ClassMethod CallRESTapi(pIris As %String, pUrl As %String, ByRef pResponseData As %DynamicObject, pType As %String = "GET") As %Status
 {
 	#define maxRetries 2
