@@ -61,18 +61,6 @@ This app utilizes a specific directory for UnitTests. The directory name, in thi
 Do ##class(%UnitTest.Manager).RunTest("operability-manager","/loadudl")
 ```
 
-But you also can run the test script locally with:
-```
-IRISAPP>set ^UnitTestRoot="/irisdev/app/tests"
-IRISAPP>do ##class(%UnitTest.Manager).RunTest()
-```
-Or with ZPM:
-```
-IRISAPP>zpm
-zpm:IRISAPP>load /irisdev/app
-zpm:IRISAPP>test demo-coffeemaker
-```
-
 ## ZPM Package Manager
 This module is zpm-packaged, which means that it is described with [module.xml](https://github.com/intersystems-community/iris-fullstack-template/blob/40d39a688df604ef11681c80fc24254a6570fe43/module.xml) and available in public repository and installable with:
 zpm "install interoperability-manager"
