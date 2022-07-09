@@ -37,7 +37,7 @@ ClassMethod GetConfigItems() As %String
 	Set tCount = 0
 	While rset.%Next() {
 		// ROWSPEC = "ConfigName:%String,CommentOrClassName:%String,Enabled:%Boolean,BusinessType:%Integer,ClassName:%String,RequestClasses:%String,ResponseClasses:%String,Production:%String,ItemId:%Integer,SeqNum:%String,BusPartner:%String,Categories:%String,AlertGroups:%String"
-		Write rset.%ROWCOUNT,!
+		Write !,rset.%ROWCOUNT
 		Try {
 			Set tConfigName = rset.%GetData(1)
 			Set tEnabled = rset.%GetData(3)
@@ -47,7 +47,7 @@ ClassMethod GetConfigItems() As %String
 			Write exp,!
 			Write exp.DisplayString(),!
 		}
-		Write $Get(tConfigName)," ",$Get(tEnabled),!
+		Write "  ",$Get(tConfigName)," ",$Get(tEnabled)
 	}
 	Quit tCount
 }
