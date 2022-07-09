@@ -9,6 +9,6 @@ services:
     volumes:
 #      - ./web:/opt/irisapp/csp
 #      - ./tests:/opt/irisapp/tests
-#      - ./:/irisdev/app
+      - ./:/irisdev/app
 #      - /efs/ICS:/ICS
 #      - /efs/ICS/iris.key:/usr/irissys/mgr/iris.key
