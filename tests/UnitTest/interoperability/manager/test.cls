@@ -15,7 +15,7 @@ Method TestRESTapi()
 	Set tConfigItem = "FSC deletedVendors Service"
 	Set tType = "POST"
 	Set tURL = "/rest/irisapp/Production/Item/Remove/"_tConfigItem
-	Set tURL = ##class(%CSP.Page).EscapeURL(tURL)
+	//Set tURL = ##class(%CSP.Page).EscapeURL(tURL)
 	Set tSC = ##class(User.Util).CallRESTapi(0,tURL,.tResponseData,tType)
 	Do $$$AssertEquals(tSC,1, "CallRESTapi")
 	// Allow time to save Production
