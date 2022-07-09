@@ -24,7 +24,9 @@ Open IRIS terminal and run ZPM:
 USER>zpm
 zpm:USER>install "interoperability-manager"
 ```
-Run the appliction in URL: http://yourserver:57700/irisapp/index.html#/
+After ZPM installation, access the application at URL: http://yourserver:yourport/csp/irisapp/index.html#/
+
+or go directly to Production Manager at URL: http://yourserver:yourport/csp/irisapp/ProductionManager.csp
 
 ## Development
 ### Prerequisites
