@@ -50,3 +50,70 @@ This app utilizes a specific directory for UnitTests. The directory name, in thi
 ```
 Do ##class(%UnitTest.Manager).RunTest("interoperability-manager","/loadudl")
 ```
+
+```
+IRISAPP>Do ##class(%UnitTest.Manager).RunTest("interoperability-manager","/loadudl")
+
+===============================================================================
+Directory: /opt/unittests/interoperability-manager/
+===============================================================================
+  interoperability-manager begins ...
+Load of directory started on 07/09/2022 15:23:18 '*.xml;*.XML;*.cls;*.mac;*.int;*.inc;*.CLS;*.MAC;*.INT;*.INC'
+
+Loading file /opt/unittests/interoperability-manager/test.cls as udl
+
+Compilation started on 07/09/2022 15:23:18 with qualifiers '/loadudl'
+Compiling class UnitTest.interoperability.manager.test
+Compiling routine UnitTest.interoperability.manager.test.1
+Compilation finished successfully in 0.042s.
+
+Load finished successfully.
+
+    UnitTest.interoperability.manager.test begins ...
+      TestRESTapi() begins ...
+1  CCS Feeder Service 1
+2  CDW Feeder Service 1
+3  FMS Feeder Service 1
+4  FSC Feeder Service 1
+5  FSC deletedVendors Service 1
+6  File Passthrough Service 1
+7  POC Feeder Service 1
+8  POU Feeder Service 1
+9  PYXIS Feeder Service 1
+10  Upload Feeder Service 0
+11  UploadFiles Feeder Service 1
+12  Wavemark Feeder Service 1
+13  CAPuser Operation 1
+14  DCT Operation 1
+15  FTP Operation 1
+16  PYXIS Operation 1
+17  Wavemark Operation 1
+        LogMessage:17 ConfigItems before.
+        AssertEquals:CallRESTapi (passed)
+1  CCS Feeder Service 1
+2  CDW Feeder Service 1
+3  FMS Feeder Service 1
+4  FSC Feeder Service 1
+5  File Passthrough Service 1
+6  POC Feeder Service 1
+7  POU Feeder Service 1
+8  PYXIS Feeder Service 1
+9  Upload Feeder Service 0
+10  UploadFiles Feeder Service 1
+11  Wavemark Feeder Service 1
+12  CAPuser Operation 1
+13  DCT Operation 1
+14  FTP Operation 1
+15  PYXIS Operation 1
+16  Wavemark Operation 1
+        LogMessage:16 ConfigItems after.
+        AssertEquals:TestRESTapi (passed)
+        LogMessage:Duration of execution: 1.16711 sec.
+      TestRESTapi passed
+    UnitTest.interoperability.manager.test passed
+  interoperability-manager passed
+
+Use the following URL to view the result:
+http://172.18.0.2:52773/csp/sys/%25UnitTest.Portal.Indices.cls?Index=2&$NAMESPACE=IRISAPP
+All PASSED
+```
