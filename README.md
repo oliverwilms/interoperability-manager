@@ -35,10 +35,10 @@ or go directly to Production Manager at URL: http://yourserver:yourport/csp/iris
 
 ## interoperability-manager Unit Test
 
-Open IRIS terminal:
+Open IRIS terminal using IRISAPP namespace:
 
 ```
-docker-compose exec iris iris session iris
+docker-compose exec iris iris session iris -U IRISAPP
 ```
 
 The first command needs to be run once
